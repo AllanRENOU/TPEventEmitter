@@ -11,7 +11,6 @@ function EventEmitter(){
 
 EventEmitter.prototype	=	{
 	times:	function(event, num, fn){
-				console.log(">> Ajout de l'evenement "+ event);
 				//Si l'evenement n'existe pas
 				if(!this.callbacks.hasOwnProperty(event) ){
 					//On crée une entrée dans le tableau
@@ -38,21 +37,16 @@ EventEmitter.prototype	=	{
 			
 	off:	function(event, fn){
 				if(event === undefined){
-					console.log(">> Suppression de tous les evenements");
 					while(this.callbacks.length != 0){
 						this.callbacks.pop();
 					}
 				}else{
 					
 					if(fn === undefined ){
-					
-						console.log(">> Suppression de l'ecouteur "+event);
-
 						delete this.callbacks[event];
 						
 					}else{
 					
-						console.log(">> Suppression de la fonction "+fn+" de l'ecouteur "+event);
 						var index = -1;
 						this.callbacks[event].forEach(function(e, i, t){	
 													if(e[0] == fn){
@@ -85,7 +79,6 @@ EventEmitter.prototype	=	{
 					(this.callbacks[event]).forEach(function(e, i, t){
 												//Si le compteur est différent de 0, on execute la fonction
 												if(e[1] != 0){
-													console.log(">> Evenement "+event+", fonction n"+i+", compeur : "+e[1]);
 													e[0].apply(EventEmitter(), tab);
 													
 													//On diminue de 1 le compteur
