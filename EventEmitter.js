@@ -1,16 +1,3 @@
-
-function f1(txt){
-	console.log(txt);
-}
-
-function f2(msg, num){
-	console.log(msg +", "+num);
-}
-
-
-
-
-
 function EventEmitter(){
 
 	//HashMap[event -> [[fn1, compteur1], [fn2,compeur2], ...]]
@@ -109,25 +96,3 @@ EventEmitter.prototype	=	{
 				return this;
 				}
 };
-
-//EventEmitter().on("say", f1)//f1 = console.log
-/*
-.on("parle", function(a, b, c){console.log(a+", "+b+" : "+c);})
-.on("parle", f1)
-.on("parle", function(a, b){console.log(a+" et "+b);})
-
-.emit("say", "coucou")
-.emit("parle", "num1", "nom", "val")
-
-.off("parle", f1)
-.emit("parle", "num2", "nom2", "val2")
-*/
-/*
-.once("parle", f2)
-.times("parle", 2, f1)
-.emit("parle", "ok")
-.emit("parle","ok")
-.emit("parle","ERREUR");
-
-console.log("fin");
-*/
